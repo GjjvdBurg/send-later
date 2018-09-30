@@ -372,10 +372,9 @@ var Sendlater3Composing = {
                         return true;
                     };
                 }
-                window.openDialog(
-                    "chrome://sendlater3/content/prompt.xul",
-                    "SendAtWindow", "modal,chrome,centerscreen",
-                    args);
+		sendat = new Date();
+		sendat.setTime(sendat.getTime() + 1*60*1000);
+		finishCallback(sendat, undefined, false, args);
                 if (! args.allowDefault)
                     event.preventDefault();
             }
